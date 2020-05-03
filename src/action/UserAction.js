@@ -1,7 +1,7 @@
-export const userAdd=(article)=>{
+export const userAdd=(user)=>{
     return{
         type:'USER_ADD',
-        payload:article
+        payload:user
     }
 }
 
