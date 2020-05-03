@@ -5,7 +5,9 @@ class Login extends React.Component {
         super()
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errorMsg:'',
+            error:false
         }
     }
 
@@ -16,13 +18,13 @@ class Login extends React.Component {
     }
 
     handleSubmit = (e) => {
+        const {email,password}=this.state
         e.preventDefault()
-        // const formData = {
-        //     email: this.state.email,
-        //     password: this.state.password
-        // }
-        //   this.props.history.push('/task2/sidebar')
-    
+        if(email!==''&&password!==''){
+          this.props.history.push('/task2/sidebar')
+      }else{
+        this.setState({errorMsg:'invalid input',error:true})
+      }
     
     }
 
@@ -37,10 +39,12 @@ class Login extends React.Component {
                 <div className='form-group'>
                     <label htmlFor="email">Email</label>
                     <input type="text" className='form-control' id="email" name="email" value={this.state.email} onChange={this.handleChange} />
+                    {!this.state.email && this.state.error && <span className='text-danger text-center'>{this.state.errorMsg}</span>}
                 </div>
                 <div className='form-group'>
                     <label htmlFor="password">Password</label>
                     <input type="password" className='form-control' id="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    {!this.state.password && this.state.error && <span className='text-danger text-center'>{this.state.errorMsg}</span>}
                 </div>
                     <input type="submit" className='btn btn-primary btn-sm' value="Login" />
                 </form>

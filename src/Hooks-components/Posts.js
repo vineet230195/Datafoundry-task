@@ -55,7 +55,7 @@ function PostTable(props){
             <table className='table table-striped'>
                     <thead>
                        <tr>
-                         <td><button className='btn btn-link'onClick={() => requestSort('title')}>Title</button>      <input type="text" placeholder="Search" onChange={e => handleSearch(e.target.value)}/></td>
+                         <td><button className='btn btn-link'onClick={() => requestSort('title')}>Title</button><input type="text" placeholder="Search" onChange={e => handleSearch(e.target.value)}/></td>
                         
                      </tr>
                      </thead>

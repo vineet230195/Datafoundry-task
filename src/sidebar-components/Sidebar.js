@@ -1,36 +1,23 @@
-import React from "react";
-import Sidebar from "react-sidebar";
- 
+import React from 'react';
+import { Sidebar, SidebarItem } from 'react-responsive-sidebar';
 
- 
-class SidebarMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-     
-      sidebarOpen: false
-    }
 
-  }
- 
- 
-  onSetSidebarOpen=(open)=> {
-    this.setState({ sidebarOpen: open });
-  }
- 
+const SideBarView = () => {
+  
+  const items = [
+    <SidebarItem>Dashboard</SidebarItem>,
+    <SidebarItem>Profile</SidebarItem>,
+    <SidebarItem>Settings</SidebarItem>,
+  ]
 
-  render() {
-    return (
-      <Sidebar
-        sidebar={<b>Sidebar content</b>}
-        open={this.state.sidebarOpen}
-        docked={this.state.sidebarDocked}
-        onSetOpen={this.onSetSidebarOpen}
-      >
-        <b>Main content</b>
+  return (
+    <div className='container'>
+      
+      <Sidebar content={items}>
+        
       </Sidebar>
-    );
-  }
+    </div>
+    
+    )
 }
- 
-export default SidebarMenu;
+export default SideBarView
